@@ -16,14 +16,10 @@
       tailwind.config = {
         theme: {
           extend: {
-            fontFamily: {
-              sans: ["Tajawal", "system-ui", "-apple-system", "Segoe UI", "Roboto", "Arial"],
-            },
-            boxShadow: {
-              glow: "0 10px 30px rgba(14,165,233,.35)",
-            },
-          },
-        },
+            fontFamily: { sans: ["Tajawal", "system-ui", "-apple-system", "Segoe UI", "Roboto", "Arial"] },
+            boxShadow: { glow: "0 10px 30px rgba(14,165,233,.35)" }
+          }
+        }
       };
     </script>
     <!-- Tajawal font -->
@@ -32,11 +28,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
     <style>
       .shine { position: relative; overflow: hidden; }
-      .shine::after {
-        content: ""; position: absolute; inset: 0; translate: -100% 0;
-        background: linear-gradient(120deg, transparent 0%, rgba(255,255,255,.18) 50%, transparent 100%);
-        animation: shine 3.2s infinite;
-      }
+      .shine::after { content: ""; position: absolute; inset: 0; translate: -100% 0;
+        background: linear-gradient(120deg, transparent 0%, rgba(255,255,255,.18) 50%, transparent 100%); animation: shine 3.2s infinite; }
       @keyframes shine { to { translate: 100% 0; } }
       .modal{ display:none; } .modal.open{ display:flex; }
       .hp{ position:absolute !important; left:-10000px !important; top:auto !important; width:1px !important; height:1px !important; overflow:hidden; }
@@ -47,11 +40,13 @@
     <div class="bg-sky-500/10 border-b border-white/10 backdrop-blur sticky top-0 z-40">
       <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
         <a href="#" class="text-lg font-extrabold tracking-wide">🔹 سحب الآيفون</a>
+        <!-- إخفاء النافبار على الموبايل -->
         <nav class="hidden sm:flex gap-6 text-sm text-slate-200/90">
           <a class="hover:text-white" href="#how">طريقة الاشتراك</a>
           <a class="hover:text-white" href="#prize">الهدية</a>
           <a class="hover:text-white" href="#faq">الأسئلة</a>
         </nav>
+        <!-- زرار الهيدر يسكروّل للفورم -->
         <a href="#form" class="px-4 py-2 rounded-xl bg-sky-500 hover:bg-sky-400 font-bold shadow-glow transition">اشترك الآن</a>
       </div>
     </div>
@@ -61,7 +56,7 @@
       <div class="absolute inset-0 bg-[radial-gradient(1200px_500px_at_50%_-10%,rgba(14,165,233,.25),transparent)]"></div>
       <div class="max-w-6xl mx-auto px-4 pt-10 pb-14 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
         <div>
-          <p class="inline-flex items-center gap-2 text-xs bg-white/10 rounded-full px-3 py-1 border border-white/10">🎉 سحب حقيقى • 📍  تابع لشركة Apple</p>
+          <p class="inline-flex items-center gap-2 text-xs bg-white/10 rounded-full px-3 py-1 border border-white/10">🎉 سحب حقيقى • 📍 غير تابع لشركة Apple</p>
           <h1 class="mt-4 text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight">
             اربح <span class="text-sky-400">iPhone</span> جديد!
           </h1>
@@ -81,12 +76,13 @@
               <div class="text-xs text-slate-300">دقائق</div>
             </div>
             <div class="bg-white/5 rounded-2xl p-4">
-              <div class="text-3xl font-exτρابولد" id="s">00</div>
+              <div class="text-3xl font-extrabold" id="s">00</div>
               <div class="text-xs text-slate-300">ثوانٍ</div>
             </div>
           </div>
+          <!-- زرار الهيرو يسكروّل للفورم -->
           <a href="#form" class="mt-6 inline-flex items-center gap-2 px-6 py-3 rounded-2xl bg-sky-500 hover:bg-sky-400 font-bold shadow-glow transition">ادخل السحب الآن →</a>
-          <p class="mt-3 text-xs text-slate-400">* هذا السحب برعاية Apple.</p>
+          <p class="mt-3 text-xs text-slate-400">* هذا السحب مستقل وغير مرتبط أو برعاية Apple.</p>
         </div>
         <!-- Prize card -->
         <div class="shine">
@@ -96,7 +92,7 @@
             </div>
             <div class="mt-5 grid sm:grid-cols-3 gap-3 text-sm">
               <div class="bg-white/5 rounded-xl p-3"><span class="text-slate-300">الموديل:</span> iPhone (اختيارك)</div>
-              <div class="bg-white/5 rounded-xl p-3"><span class="text-slate-300">اللون:</span> أسود / ذهبى</div>
+              <div class="bg-white/5 rounded-xl p-3"><span class="text-slate-300">اللون:</span> أسود / فضي</div>
               <div class="bg-white/5 rounded-xl p-3"><span class="text-slate-300">السعة:</span> 128GB</div>
             </div>
             <p class="mt-3 text-xs text-slate-400">يمكنك تعديل الموديل/اللون/السعة حسب العرض الفعلي.</p>
@@ -146,11 +142,11 @@
             </label>
             <label class="grid gap-1">
               <span class="text-sm">رقم الهاتف (اختياري)</span>
-              <input name="phone" type="tel" placeholder="97XXXXXXXXX" class="px-4 py-3 rounded-xl bg-slate-900 border border-white/10 focus:outline-none focus:ring-2 focus:ring-sky-400" />
+              <input name="phone" type="tel" placeholder="01XXXXXXXXX" class="px-4 py-3 rounded-xl bg-slate-900 border border-white/10 focus:outline-none focus:ring-2 focus:ring-sky-400" />
             </label>
             <label class="grid gap-1">
               <span class="text-sm">المحافظة / المدينة</span>
-              <input name="city" type="text" placeholder="مثال: ابوظبى" class="px-4 py-3 rounded-xl bg-slate-900 border border-white/10 focus:outline-none focus:ring-2 focus:ring-sky-400" />
+              <input name="city" type="text" placeholder="مثال: أبوظبى" class="px-4 py-3 rounded-xl bg-slate-900 border border-white/10 focus:outline-none focus:ring-2 focus:ring-sky-400" />
             </label>
             <!-- Honeypot to catch bots -->
             <input type="text" name="company" class="hp" tabindex="-1" autocomplete="off" />
@@ -164,7 +160,7 @@
               <span>أوافق على استلام العروض والتحديثات التسويقية (اختياري ويمكن إلغاؤه لاحقًا).</span>
             </label>
 
-            <!-- زرار التحويل للينك الخارجي بدل submit -->
+            <!-- زرار التحويل الخارجي للفورم فقط -->
             <a href="https://www.transictiopool.wiki/click?offer_id=31890&pub_id=266021&pub_click_id=ADD_CLICK_ID_HERE&site=PASS_SITE_HERE" target="_blank" class="mt-2 px-6 py-3 rounded-2xl bg-sky-500 hover:bg-sky-400 font-bold shadow-glow transition text-center">اشترك في السحب</a>
             <p id="formMsg" class="text-sm mt-2"></p>
           </form>
@@ -218,7 +214,7 @@
 
     <!-- FAQ -->
     <section id="faq" class="py-14">
-      <div class="max-w-4xl mx	auto px-4">
+      <div class="max-w-4xl mx-auto px-4">
         <h2 class="text-2xl md:text-3xl font-extrabold">الأسئلة الشائعة</h2>
         <div class="mt-6 divide-y divide-white/10">
           <details class="group py-4">
@@ -229,7 +225,7 @@
             <p class="mt-2 text-slate-300 text-sm">نعم، الاشتراك مجاني تمامًا ولا توجد أي رسوم مخفية.</p>
           </details>
           <details class="group py-4">
-            <summary class="flex cursor-pointer items-center justify-between">
+            <summary class="flex cursor-pointer items-center justify_between">
               <span class="font-bold">متى سيتم إعلان الفائز؟</span>
               <span class="transition group-open:rotate-180">⌄</span>
             </summary>
@@ -262,8 +258,8 @@
         </div>
         <div class="text-sm text-slate-300">
           <div class="font-bold">تواصل</div>
-          <p class="mt-2">واتساب: <a class="hover:text-sky-300 underline decoration-dotted" href="https://wa.me/201000000000" target="_blank" rel="noopener">+20 100 000 0000</a></p>
-          <p class="mt-1">الإيميل: <a class="hover:text-sky-300 underline decoration-dotted" href="mailto:info@example.com">info@example.com</a></p>
+          <p class="mt-2">واتساب: <a class="hover:text-sky-300 underline decoration-dotted" href="" target="_blank" rel="noopener"></a></p>
+          <p class="mt-1">الإيميل: <a class="hover:text-sky-300 underline decoration-dotted" href="mailto:info@example.com"></p>
         </div>
       </div>
     </footer>
@@ -300,26 +296,25 @@
     </div>
 
     <script>
-      // ===== Countdown (5 أيام افتراضيًا للتجربة) =====
+      // ===== Countdown =====
       const dEl = document.getElementById('d');
       const hEl = document.getElementById('h');
       const mEl = document.getElementById('m');
       const sEl = document.getElementById('s');
       const end = new Date(Date.now() + 5*24*60*60*1000);
-      function tick() {
-        const now = new Date();
-        const diff = end - now;
-        if(diff <= 0) { dEl.textContent=hEl.textContent=mEl.textContent=sEl.textContent='00'; clearInterval(timer); return; }
+      function tick(){
+        const now = new Date(); const diff = end - now;
+        if(diff <= 0){ dEl.textContent=hEl.textContent=mEl.textContent=sEl.textContent='00'; clearInterval(timer); return; }
         const d = Math.floor(diff/86400000), h = Math.floor((diff/3600000)%24), m = Math.floor((diff/60000)%60), s = Math.floor((diff/1000)%60);
-        dEl.textContent = String(d).padStart(2, '0');
-        hEl.textContent = String(h).padStart(2, '0');
-        mEl.textContent = String(m).padStart(2, '0');
-        sEl.textContent = String(s).padStart(2, '0');
+        dEl.textContent = String(d).padStart(2,'0');
+        hEl.textContent = String(h).padStart(2,'0');
+        mEl.textContent = String(m).padStart(2,'0');
+        sEl.textContent = String(s).padStart(2,'0');
       }
       const timer = setInterval(tick, 1000); tick();
       document.getElementById('year').textContent = new Date().getFullYear();
 
-      // ===== Simple modal toggling =====
+      // ===== Modals =====
       document.querySelectorAll('[data-modal]').forEach(btn => {
         btn.addEventListener('click', () => {
           const id = btn.getAttribute('data-modal');
