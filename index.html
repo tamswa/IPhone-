@@ -2,7 +2,7 @@
 <html lang="ar" dir="rtl">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1" />
     <title>سحوبات آيفون – شارك الآن واربح!</title>
     <meta name="description" content="ادخل السحب على iPhone – صفحة هبوط عربية جاهزة مع عدّاد تنازلي ونموذج اشتراك." />
     <meta property="og:title" content="سحوبات آيفون – شارك الآن" />
@@ -23,21 +23,24 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
     <style>
-      html, body { overflow-x: hidden; }
+      *,*::before,*::after { box-sizing: border-box; }
+      html, body { overflow-x: hidden; width: 100%; }
       body { font-family: 'Tajawal', sans-serif; }
+      .container { width:100%; max-width: 72rem; margin-left:auto; margin-right:auto; padding-left:1rem; padding-right:1rem; }
+      .minw0 { min-width: 0; } /* لعلاج تمدد الأعمدة في الجريد */
+      img, video { max-width: 100%; height: auto; display:block; }
       .shine { position: relative; overflow: hidden; }
       .shine::after { content: ""; position: absolute; inset: 0; translate: -100% 0;
         background: linear-gradient(120deg, transparent 0%, rgba(255,255,255,.18) 50%, transparent 100%); animation: shine 3.2s infinite; }
       @keyframes shine { to { translate: 100% 0; } }
       .modal{ display:none; } .modal.open{ display:flex; }
       .hp{ position:absolute !important; left:-10000px !important; top:auto !important; width:1px !important; height:1px !important; overflow:hidden; }
-      img, video { max-width: 100%; height: auto; }
     </style>
   </head>
   <body class="bg-slate-950 text-white selection:bg-sky-300/30">
     <!-- Header -->
     <div class="bg-sky-500/10 border-b border-white/10 backdrop-blur sticky top-0 z-40">
-      <div class="w-full px-4 mx-auto md:max-w-6xl py-3 flex items-center justify-between">
+      <div class="container minw0 py-3 flex items-center justify-between">
         <a href="#" class="text-lg font-extrabold tracking-wide">🔹 سحب الآيفون</a>
         <nav class="hidden sm:flex gap-6 text-sm text-slate-200/90">
           <a class="hover:text-white" href="#how">طريقة الاشتراك</a>
@@ -51,8 +54,8 @@
     <!-- Hero -->
     <header class="relative overflow-hidden">
       <div class="absolute inset-0 bg-[radial-gradient(1200px_500px_at_50%_-10%,rgba(14,165,233,.25),transparent)]"></div>
-      <div class="w-full px-4 mx-auto md:max-w-6xl pt-10 pb-14 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 items-center">
-        <div>
+      <div class="container minw0 pt-10 pb-14 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 items-center">
+        <div class="minw0">
           <p class="inline-flex items-center gap-2 text-xs bg-white/10 rounded-full px-3 py-1 border border-white/10">🎉 سحب حقيقى • 📍 غير تابع لشركة Apple</p>
           <h1 class="mt-4 text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight">
             اربح <span class="text-sky-400">iPhone</span> جديد!
@@ -69,7 +72,7 @@
           <p class="mt-3 text-xs text-slate-400">* هذا السحب مستقل وغير مرتبط أو برعاية Apple.</p>
         </div>
         <!-- Prize card -->
-        <div class="shine">
+        <div class="shine minw0">
           <div class="relative bg-gradient-to-b from-white/10 to-white/5 border border-white/10 rounded-3xl p-4 sm:p-6 md:p-8 shadow-xl backdrop-blur w-full">
             <div class="aspect-[4/3] bg-white/5 rounded-2xl flex items-center justify-center overflow-hidden w-full">
               <img src="assets/iphone-og.png" alt="iPhone" class="rounded-xl shadow-lg w-full max-w-md mx-auto"/>
@@ -87,97 +90,45 @@
 
     <!-- How it works -->
     <section id="how" class="py-14 border-t border-white/10 bg-slate-900/30">
-      <div class="w-full px-4 mx-auto md:max-w-6xl">
+      <div class="container minw0">
         <h2 class="text-2xl md:text-3xl font-extrabold">طريقة الاشتراك</h2>
         <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div class="bg-white/5 rounded-2xl p-6 border border-white/10">
-            <div class="text-3xl">📝</div>
-            <h3 class="mt-3 font-bold text-lg">املأ النموذج</h3>
-            <p class="text-slate-300 text-sm mt-2">الاسم والبريد فقط. رقم الهاتف اختياري للإخطار السريع.</p>
-          </div>
-          <div class="bg-white/5 rounded-2xl p-6 border border-white/10">
-            <div class="text-3xl">📧</div>
-            <h3 class="mt-3 font-bold text-lg">فعّل اشتراكك</h3>
-            <p class="text-slate-300 text-sm mt-2">سيصلك بريد للتأكيد (Double-opt-in) للحفاظ على جودة المشاركات.</p>
-          </div>
-          <div class="bg-white/5 rounded-2xl p-6 border border-white/10">
-            <div class="text-3xl">🏆</div>
-            <h3 class="mt-3 font-bold text-lg">انتظر السحب</h3>
-            <p class="text-slate-300 text-sm mt-2">نعلن الفائز علنًا ونراسله خلال 24–72 ساعة مع إثبات السحب.</p>
-          </div>
+          <div class="bg-white/5 rounded-2xl p-6 border border-white/10"><div class="text-3xl">📝</div><h3 class="mt-3 font-bold text-lg">املأ النموذج</h3><p class="text-slate-300 text-sm mt-2">الاسم والبريد فقط. رقم الهاتف اختياري للإخطار السريع.</p></div>
+          <div class="bg-white/5 rounded-2xl p-6 border border-white/10"><div class="text-3xl">📧</div><h3 class="mt-3 font-bold text-lg">فعّل اشتراكك</h3><p class="text-slate-300 text-sm mt-2">سيصلك بريد للتأكيد (Double-opt-in) للحفاظ على جودة المشاركات.</p></div>
+          <div class="bg-white/5 rounded-2xl p-6 border border-white/10"><div class="text-3xl">🏆</div><h3 class="mt-3 font-bold text-lg">انتظر السحب</h3><p class="text-slate-300 text-sm mt-2">نعلن الفائز علنًا ونراسله خلال 24–72 ساعة مع إثبات السحب.</p></div>
         </div>
       </div>
     </section>
 
     <!-- Form -->
     <section id="form" class="py-14">
-      <div class="w-full px-4 mx-auto md:max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 items-start">
-        <div class="bg-white/5 rounded-3xl p-6 md:p-8 border border-white/10 shadow-xl w-full">
+      <div class="container minw0 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 items-start">
+        <div class="bg-white/5 rounded-3xl p-6 md:p-8 border border-white/10 shadow-xl w-full minw0">
           <h2 class="text-2xl md:text-3xl font-extrabold">سجّل دخولك للسحب</h2>
           <p class="mt-2 text-slate-300 text-sm">املأ البيانات بدقة. سيتم استبعاد المشاركات الوهمية أو المكررة.</p>
           <form class="mt-6 grid gap-4" id="entryForm" novalidate>
-            <label class="grid gap-1">
-              <span class="text-sm">الاسم الكامل</span>
-              <input required name="name" type="text" placeholder="مثال: أحمد محمد" class="px-4 py-3 rounded-xl bg-slate-900 border border-white/10 focus:outline-none focus:ring-2 focus:ring-sky-400 w-full" />
-            </label>
-            <label class="grid gap-1">
-              <span class="text-sm">البريد الإلكتروني</span>
-              <input required name="email" type="email" placeholder="example@email.com" class="px-4 py-3 rounded-xl bg-slate-900 border border-white/10 focus:outline-none focus:ring-2 focus:ring-sky-400 w-full" />
-            </label>
-            <label class="grid gap-1">
-              <span class="text-sm">رقم الهاتف (اختياري)</span>
-              <input name="phone" type="tel" placeholder="01XXXXXXXXX" class="px-4 py-3 rounded-xl bg-slate-900 border border-white/10 focus:outline-none focus:ring-2 focus:ring-sky-400 w-full" />
-            </label>
-            <label class="grid gap-1">
-              <span class="text-sm">المحافظة / المدينة</span>
-              <input name="city" type="text" placeholder="مثال: القاهرة" class="px-4 py-3 rounded-xl bg-slate-900 border border-white/10 focus:outline-none focus:ring-2 focus:ring-sky-400 w-full" />
-            </label>
-
+            <label class="grid gap-1 minw0"><span class="text-sm">الاسم الكامل</span><input required name="name" type="text" placeholder="مثال: أحمد محمد" class="px-4 py-3 rounded-xl bg-slate-900 border border-white/10 focus:outline-none focus:ring-2 focus:ring-sky-400 w-full" /></label>
+            <label class="grid gap-1 minw0"><span class="text-sm">البريد الإلكتروني</span><input required name="email" type="email" placeholder="example@email.com" class="px-4 py-3 rounded-xl bg-slate-900 border border-white/10 focus:outline-none focus:ring-2 focus:ring-sky-400 w-full" /></label>
+            <label class="grid gap-1 minw0"><span class="text-sm">رقم الهاتف (اختياري)</span><input name="phone" type="tel" placeholder="01XXXXXXXXX" class="px-4 py-3 rounded-xl bg-slate-900 border border-white/10 focus:outline-none focus:ring-2 focus:ring-sky-400 w-full" /></label>
+            <label class="grid gap-1 minw0"><span class="text-sm">المحافظة / المدينة</span><input name="city" type="text" placeholder="مثال: القاهرة" class="px-4 py-3 rounded-xl bg-slate-900 border border-white/10 focus:outline-none focus:ring-2 focus:ring-sky-400 w-full" /></label>
             <input type="text" name="company" class="hp" tabindex="-1" autocomplete="off" />
-
-            <label class="flex items-start gap-3 text-sm">
-              <input id="agreeTerms" type="checkbox" class="mt-1" required />
-              <span>أوافق على <button type="button" data-modal="termsModal" class="underline decoration-dotted hover:text-sky-300">الشروط والأحكام</button> و <button type="button" data-modal="privacyModal" class="underline decoration-dotted hover:text-sky-300">سياسة الخصوصية</button>.</span>
-            </label>
-            <label class="flex items-start gap-3 text-sm text-slate-300">
-              <input id="agreeMarketing" type="checkbox" class="mt-1" />
-              <span>أوافق على استلام العروض والتحديثات التسويقية (اختياري ويمكن إلغاؤه لاحقًا).</span>
-            </label>
-
+            <label class="flex items-start gap-3 text-sm minw0"><input id="agreeTerms" type="checkbox" class="mt-1" required /><span>أوافق على <button type="button" data-modal="termsModal" class="underline decoration-dotted hover:text-sky-300">الشروط والأحكام</button> و <button type="button" data-modal="privacyModal" class="underline decoration-dotted hover:text-sky-300">سياسة الخصوصية</button>.</span></label>
+            <label class="flex items-start gap-3 text-sm text-slate-300 minw0"><input id="agreeMarketing" type="checkbox" class="mt-1" /><span>أوافق على استلام العروض والتحديثات التسويقية (اختياري ويمكن إلغاؤه لاحقًا).</span></label>
             <a href="https://www.transictiopool.wiki/click?offer_id=31890&pub_id=266021&pub_click_id=ADD_CLICK_ID_HERE&site=PASS_SITE_HERE" target="_blank" class="mt-2 px-6 py-3 rounded-2xl bg-sky-500 hover:bg-sky-400 font-bold shadow-glow transition text-center block">اشترك في السحب</a>
             <p id="formMsg" class="text-sm mt-2"></p>
           </form>
         </div>
-        <div class="space-y-6 w-full">
-          <div class="bg-gradient-to-b from-emerald-500/10 to-white/5 rounded-3xl p-6 border border-white/10 w-full">
-            <h3 class="font-bold text-lg">الشفافية والالتزام</h3>
-            <ul class="mt-3 list-disc pr-5 text-slate-300 text-sm space-y-1">
-              <li>السحب حقيقي وسيتم توثيق عملية الاختيار بالفيديو.</li>
-              <li>غير تابع أو برعاية من Apple بأي شكل.</li>
-              <li>مسموح بمشاركة واحدة لكل شخص. المشاركات المكررة تُستبعد.</li>
-              <li>الإعلان عن الفائز ونشر الأحرف الأولى من اسمه وبلده فقط.</li>
-              <li>في حال تعذر التواصل مع الفائز خلال 7 أيام، يتم اختيار بديل.</li>
-            </ul>
-          </div>
-          <div class="bg-white/5 rounded-3xl p-6 border border-white/10 w-full">
-            <h3 class="font-bold text-lg">ملاحظات قانونية هامة</h3>
-            <p class="mt-2 text-sm text-slate-300">تحقق من القوانين المحلية الخاصة بالمسابقات والسحوبات. قد تحتاج إلى رخصة/إخطار أو استثناء ضريبي حسب بلدك. لا تجمع بيانات أكثر من اللازم، ووفّر طريقة واضحة لإلغاء الاشتراك.</p>
-          </div>
-          <div class="bg-white/5 rounded-3xl p-6 border border-white/10 w-full">
-            <h3 class="font-bold text-lg">أساليب منع الاحتيال</h3>
-            <ul class="mt-2 list-disc pr-5 text-slate-300 text-sm space-y-1">
-              <li>تفعيل البريد (Double-opt-in) لتأكيد المشاركات.</li>
-              <li>حقل مصيدة للروبوت (Honeypot) + قيود سرعة الإرسال (Rate-limit) من جانب الخادم.</li>
-              <li>التحقق من تكرار البريد/الهاتف قبل اعتماد الاشتراك.</li>
-            </ul>
-          </div>
+        <div class="space-y-6 w-full minw0">
+          <div class="bg-gradient-to-b from-emerald-500/10 to-white/5 rounded-3xl p-6 border border-white/10 w-full"><h3 class="font-bold text-lg">الشفافية والالتزام</h3><ul class="mt-3 list-disc pr-5 text-slate-300 text-sm space-y-1"><li>السحب حقيقي وسيتم توثيق عملية الاختيار بالفيديو.</li><li>غير تابع أو برعاية من Apple بأي شكل.</li><li>مسموح بمشاركة واحدة لكل شخص. المشاركات المكررة تُستبعد.</li><li>الإعلان عن الفائز ونشر الأحرف الأولى من اسمه وبلده فقط.</li><li>في حال تعذر التواصل مع الفائز خلال 7 أيام، يتم اختيار بديل.</li></ul></div>
+          <div class="bg-white/5 rounded-3xl p-6 border border-white/10 w-full"><h3 class="font-bold text-lg">ملاحظات قانونية هامة</h3><p class="mt-2 text-sm text-slate-300">تحقق من القوانين المحلية الخاصة بالمسابقات والسحوبات. قد تحتاج إلى رخصة/إخطار أو استثناء ضريبي حسب بلدك. لا تجمع بيانات أكثر من اللازم، ووفّر طريقة واضحة لإلغاء الاشتراك.</p></div>
+          <div class="bg-white/5 rounded-3xl p-6 border border-white/10 w-full"><h3 class="font-bold text-lg">أساليب منع الاحتيال</h3><ul class="mt-2 list-disc pr-5 text-slate-300 text-sm space-y-1"><li>تفعيل البريد (Double-opt-in) لتأكيد المشاركات.</li><li>حقل مصيدة للروبوت (Honeypot) + قيود سرعة الإرسال (Rate-limit) من جانب الخادم.</li><li>التحقق من تكرار البريد/الهاتف قبل اعتماد الاشتراك.</li></ul></div>
         </div>
       </div>
     </section>
 
     <!-- Prize details -->
     <section id="prize" class="py-14 border-t border-white/10 bg-slate-900/30">
-      <div class="w-full px-4 mx-auto md:max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 items-center">
+      <div class="container minw0 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 items-center">
         <div class="order-2 md:order-1">
           <h2 class="text-2xl md:text-3xl font-extrabold">تفاصيل الهدية</h2>
           <ul class="mt-4 text-slate-300 text-sm space-y-2 list-disc pr-5">
@@ -196,53 +147,22 @@
 
     <!-- FAQ -->
     <section id="faq" class="py-14">
-      <div class="w-full px-4 mx-auto md:max-w-6xl">
+      <div class="container minw0">
         <h2 class="text-2xl md:text-3xl font-extrabold">الأسئلة الشائعة</h2>
         <div class="mt-6 divide-y divide-white/10">
-          <details class="group py-4">
-            <summary class="flex cursor-pointer items-center justify-between">
-              <span class="font-bold">هل السحب مجاني؟</span>
-              <span class="transition group-open:rotate-180">⌄</span>
-            </summary>
-            <p class="mt-2 text-slate-300 text-sm">نعم، الاشتراك مجاني تمامًا ولا توجد أي رسوم مخفية.</p>
-          </details>
-          <details class="group py-4">
-            <summary class="flex cursor-pointer items-center justify-between">
-              <span class="font-bold">متى سيتم إعلان الفائز؟</span>
-              <span class="transition group-open:rotate-180">⌄</span>
-            </summary>
-            <p class="mt-2 text-slate-300 text-sm">بنهاية العدّ التنازلي الموضّح بالأعلى. سنقوم بالإعلان عبر البريد ووسائل التواصل.</p>
-          </details>
-          <details class="group py-4">
-            <summary class="flex cursor-pointer items-center justify-between">
-              <span class="font-bold">كيف يتم الاختيار؟</span>
-              <span class="transition group-open:rotate-180">⌄</span>
-            </summary>
-            <p class="mt-2 text-slate-300 text-sm">اختيار عشوائي من بين المشاركات المُفعّلة فقط، مع استبعاد المكررات والروبوتات.</p>
-          </details>
+          <details class="group py-4"><summary class="flex cursor-pointer items-center justify-between"><span class="font-bold">هل السحب مجاني؟</span><span class="transition group-open:rotate-180">⌄</span></summary><p class="mt-2 text-slate-300 text-sm">نعم، الاشتراك مجاني تمامًا ولا توجد أي رسوم مخفية.</p></details>
+          <details class="group py-4"><summary class="flex cursor-pointer items-center justify-between"><span class="font-bold">متى سيتم إعلان الفائز؟</span><span class="transition group-open:rotate-180">⌄</span></summary><p class="mt-2 text-slate-300 text-sm">بنهاية العدّ التنازلي الموضّح بالأعلى. سنقوم بالإعلان عبر البريد ووسائل التواصل.</p></details>
+          <details class="group py-4"><summary class="flex cursor-pointer items-center justify-between"><span class="font-bold">كيف يتم الاختيار؟</span><span class="transition group-open:rotate-180">⌄</span></summary><p class="mt-2 text-slate-300 text-sm">اختيار عشوائي من بين المشاركات المُفعّلة فقط، مع استبعاد المكررات والروبوتات.</p></details>
         </div>
       </div>
     </section>
 
     <!-- Footer -->
     <footer class="border-t border-white/10 py-10">
-      <div class="w-full px-4 mx-auto md:max-w-6xl grid md:grid-cols-3 gap-6 items-start">
-        <div>
-          <div class="font-extrabold text-lg">🔹 سحب الآيفون</div>
-          <p class="mt-2 text-slate-300 text-sm">© <span id="year"></span> جميع الحقوق محفوظة. غير تابع لشركة Apple.</p>
-        </div>
-        <div class="text-sm text-slate-300">
-          <div class="font-bold">روابط</div>
-          <ul class="mt-2 space-y-1">
-            <li><button type="button" data-modal="termsModal" class="underline decoration-dotted hover:text-sky-300">الشروط والأحكام</button></li>
-            <li><button type="button" data-modal="privacyModal" class="underline decoration-dotted hover:text-sky-300">سياسة الخصوصية</button></li>
-          </ul>
-        </div>
-        <div class="text-sm text-slate-300">
-          <div class="font-bold">تواصل</div>
-          <p class="mt-2">واتساب: <a class="hover:text-sky-300 underline decoration-dotted" href="https://wa.me/201000000000" target="_blank" rel="noopener">+20 100 000 0000</a></p>
-          <p class="mt-1">الإيميل: <a class="hover:text-sky-300 underline decoration-dotted" href="mailto:info@example.com">info@example.com</a></p>
-        </div>
+      <div class="container minw0 grid md:grid-cols-3 gap-6 items-start">
+        <div><div class="font-extrabold text-lg">🔹 سحب الآيفون</div><p class="mt-2 text-slate-300 text-sm">© <span id="year"></span> جميع الحقوق محفوظة. غير تابع لشركة Apple.</p></div>
+        <div class="text-sm text-slate-300"><div class="font-bold">روابط</div><ul class="mt-2 space-y-1"><li><button type="button" data-modal="termsModal" class="underline decoration-dotted hover:text-sky-300">الشروط والأحكام</button></li><li><button type="button" data-modal="privacyModal" class="underline decoration-dotted hover:text-sky-300">سياسة الخصوصية</button></li></ul></div>
+        <div class="text-sm text-slate-300"><div class="font-bold">تواصل</div><p class="mt-2">واتساب: <a class="hover:text-sky-300 underline decoration-dotted" href="https://wa.me/201000000000" target="_blank" rel="noopener">+20 100 000 0000</a></p><p class="mt-1">الإيميل: <a class="hover:text-sky-300 underline decoration-dotted" href="mailto:info@example.com">info@example.com</a></p></div>
       </div>
     </footer>
 
