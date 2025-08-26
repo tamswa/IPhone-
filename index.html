@@ -2,13 +2,13 @@
 <html lang="ar" dir="rtl">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <title>سحوبات آيفون – شارك الآن واربح!</title>
     <meta name="description" content="ادخل السحب على iPhone – صفحة هبوط عربية جاهزة مع عدّاد تنازلي ونموذج اشتراك." />
     <meta property="og:title" content="سحوبات آيفون – شارك الآن" />
     <meta property="og:description" content="ادخل السحب على iPhone – صفحة هبوط RTL سريعة وجاهزة." />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="assets/iphone-og.png" />
+    <meta property="og:image" content="assets/iphone-og.png?v=3" />
     <meta name="theme-color" content="#0ea5e9" />
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -23,11 +23,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
     <style>
+      /* ===== Force Full Width on Mobile (no more squeezed content) ===== */
       *,*::before,*::after { box-sizing: border-box; }
-      html, body { overflow-x: hidden; width: 100%; }
-      body { font-family: 'Tajawal', sans-serif; }
-      .container { width:100%; max-width: 72rem; margin-left:auto; margin-right:auto; padding-left:1rem; padding-right:1rem; }
-      .minw0 { min-width: 0; } /* لعلاج تمدد الأعمدة في الجريد */
+      html, body { width: 100%; max-width: 100%; overflow-x: hidden; }
+      body { font-family: 'Tajawal', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
       img, video { max-width: 100%; height: auto; display:block; }
       .shine { position: relative; overflow: hidden; }
       .shine::after { content: ""; position: absolute; inset: 0; translate: -100% 0;
@@ -35,6 +34,19 @@
       @keyframes shine { to { translate: 100% 0; } }
       .modal{ display:none; } .modal.open{ display:flex; }
       .hp{ position:absolute !important; left:-10000px !important; top:auto !important; width:1px !important; height:1px !important; overflow:hidden; }
+
+      /* حاوية عامة بعرض كامل على الموبايل + أقصى عرض على الكبير */
+      .container { width:100%; margin-right:auto; margin-left:auto; padding-left:1rem; padding-right:1rem; }
+      @media (min-width: 768px) { .container { max-width: 72rem; } } /* ~ md */
+
+      /* علاج تمدد أعمدة الجريد اللي بيزق الصفحة */
+      .minw0 { min-width: 0; }
+
+      /* Override لأقسام Tailwind الشائعة اللي بتعمل max-width ثابت */
+      /* لو فيه عناصر Tailwind عندها max-w-6xl، نزود لها 100% على الموبايل */
+      @media (max-width: 767.98px) {
+        .max-w-6xl { max-width: 100% !important; }
+      }
     </style>
   </head>
   <body class="bg-slate-950 text-white selection:bg-sky-300/30">
@@ -75,7 +87,7 @@
         <div class="shine minw0">
           <div class="relative bg-gradient-to-b from-white/10 to-white/5 border border-white/10 rounded-3xl p-4 sm:p-6 md:p-8 shadow-xl backdrop-blur w-full">
             <div class="aspect-[4/3] bg-white/5 rounded-2xl flex items-center justify-center overflow-hidden w-full">
-              <img src="assets/iphone-og.png" alt="iPhone" class="rounded-xl shadow-lg w-full max-w-md mx-auto"/>
+              <img src="assets/iphone-og.png?v=3" alt="iPhone" class="rounded-xl shadow-lg w-full max-w-md mx-auto"/>
             </div>
             <div class="mt-5 grid grid-cols-1 sm:grid-cols-3 gap-3 text-sm">
               <div class="bg-white/5 rounded-xl p-3"><span class="text-slate-300">الموديل:</span> iPhone (اختيارك)</div>
@@ -104,7 +116,7 @@
     <section id="form" class="py-14">
       <div class="container minw0 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 items-start">
         <div class="bg-white/5 rounded-3xl p-6 md:p-8 border border-white/10 shadow-xl w-full minw0">
-          <h2 class="text-2xl md:text-3xl font-extrabold">سجّل دخولك للسحب</h2>
+          <h2 class="text-2xl md:text-3xl font-extrabول">سجّل دخولك للسحب</h2>
           <p class="mt-2 text-slate-300 text-sm">املأ البيانات بدقة. سيتم استبعاد المشاركات الوهمية أو المكررة.</p>
           <form class="mt-6 grid gap-4" id="entryForm" novalidate>
             <label class="grid gap-1 minw0"><span class="text-sm">الاسم الكامل</span><input required name="name" type="text" placeholder="مثال: أحمد محمد" class="px-4 py-3 rounded-xl bg-slate-900 border border-white/10 focus:outline-none focus:ring-2 focus:ring-sky-400 w-full" /></label>
@@ -139,7 +151,7 @@
         </div>
         <div class="order-1 md:order-2">
           <div class="aspect-[16/10] bg-white/5 border border-white/10 rounded-3xl flex items-center justify-center overflow-hidden w-full">
-            <img src="assets/iphone-og.png" alt="Banner" class="w-full max-w-md rounded-xl shadow-lg">
+            <img src="assets/iphone-og.png?v=3" alt="Banner" class="w-full max-w-md rounded-xl shadow-lg">
           </div>
         </div>
       </div>
@@ -178,7 +190,7 @@
       }
       setInterval(tick,1000); tick();
 
-      // Modal helpers
+      // Modals
       document.querySelectorAll('[data-modal]').forEach(btn=>{
         btn.addEventListener('click',()=>{
           const id=btn.getAttribute('data-modal'); document.getElementById(id).classList.add('open');
@@ -187,7 +199,7 @@
       document.querySelectorAll('[data-close]').forEach(btn=>btn.addEventListener('click',()=>btn.closest('.modal').classList.remove('open')));
       document.querySelectorAll('.modal').forEach(m=>m.addEventListener('click',(e)=>{ if(e.target===m) m.classList.remove('open'); }));
 
-      // year
+      // Footer year
       document.querySelectorAll('#year').forEach(el=>el.textContent=new Date().getFullYear());
     </script>
   </body>
