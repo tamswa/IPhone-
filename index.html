@@ -13,12 +13,10 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
-        theme: {
-          extend: {
-            fontFamily: { sans: ["Tajawal", "system-ui", "-apple-system", "Segoe UI", "Roboto", "Arial"] },
-            boxShadow: { glow: "0 10px 30px rgba(14,165,233,.35)" }
-          }
-        }
+        theme: { extend: {
+          fontFamily: { sans: ["Tajawal", "system-ui", "-apple-system", "Segoe UI", "Roboto", "Arial"] },
+          boxShadow: { glow: "0 10px 30px rgba(14,165,233,.35)" }
+        } }
       };
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,6 +24,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
     <style>
       html, body { overflow-x: hidden; }
+      body { font-family: 'Tajawal', sans-serif; }
       .shine { position: relative; overflow: hidden; }
       .shine::after { content: ""; position: absolute; inset: 0; translate: -100% 0;
         background: linear-gradient(120deg, transparent 0%, rgba(255,255,255,.18) 50%, transparent 100%); animation: shine 3.2s infinite; }
@@ -35,8 +34,8 @@
       img, video { max-width: 100%; height: auto; }
     </style>
   </head>
-  <body class="bg-slate-950 text-white font-sans selection:bg-sky-300/30">
-    <!-- Top bar -->
+  <body class="bg-slate-950 text-white selection:bg-sky-300/30">
+    <!-- Header -->
     <div class="bg-sky-500/10 border-b border-white/10 backdrop-blur sticky top-0 z-40">
       <div class="w-full px-4 mx-auto md:max-w-6xl py-3 flex items-center justify-between">
         <a href="#" class="text-lg font-extrabold tracking-wide">🔹 سحب الآيفون</a>
@@ -247,37 +246,6 @@
       </div>
     </footer>
 
-    <!-- Terms Modal -->
-    <div id="termsModal" class="modal fixed inset-0 z-50 items-center justify-center bg-black/60 p-4">
-      <div class="w-full px-4 mx-auto md:max-w-2xl bg-slate-900 border border-white/10 rounded-2xl p-6">
-        <div class="flex items-center justify-between">
-          <h3 class="font-bold text-xl">الشروط والأحكام</h3>
-          <button class="px-3 py-1 rounded-lg bg-white/10 hover:bg-white/20" data-close>إغلاق</button>
-        </div>
-        <ol class="mt-4 text-sm text-slate-300 space-y-2 list-decimal pr-5">
-          <li>مدة السحب موضحة في الإعلان.</li>
-          <li>مشاركة واحدة لكل شخص. العمر الأدنى 18 عامًا.</li>
-          <li>سيُطلب من الفائز إرسال هوية سارية لاستلام الجائزة.</li>
-          <li>هذا السحب غير برعاية أو مرتبط بشركة Apple.</li>
-          <li>نحتفظ بالحق في تعديل الشروط أو إلغاء السحب عند الضرورة القانونية.</li>
-        </ol>
-      </div>
-    </div>
-
-    <!-- Privacy Modal -->
-    <div id="privacyModal" class="modal fixed inset-0 z-50 items-center justify-center bg-black/60 p-4">
-      <div class="w-full px-4 mx-auto md:max-w-2xl bg-slate-900 border border-white/10 rounded-2xl p-6">
-        <div class="flex items-center justify-between">
-          <h3 class="font-bold text-xl">سياسة الخصوصية</h3>
-          <button class="px-3 py-1 rounded-lg bg-white/10 hover:bg-white/20" data-close>إغلاق</button>
-        </div>
-        <div class="mt-4 text-sm text-slate-300 space-y-2">
-          <p>نستخدم بياناتك لغرض إدارة السحب والتواصل معك فقط. يمكنك إلغاء الاشتراك في أي وقت.</p>
-          <p>لن نبيع بياناتك لطرف ثالث. قد نستخدم مزودي خدمة آمنين لإرسال البريد.</p>
-        </div>
-      </div>
-    </div>
-
     <script>
       // Countdown
       const dEl=document.getElementById('d'),hEl=document.getElementById('h'),mEl=document.getElementById('m'),sEl=document.getElementById('s');
@@ -290,7 +258,7 @@
       }
       setInterval(tick,1000); tick();
 
-      // Modals
+      // Modal helpers
       document.querySelectorAll('[data-modal]').forEach(btn=>{
         btn.addEventListener('click',()=>{
           const id=btn.getAttribute('data-modal'); document.getElementById(id).classList.add('open');
@@ -299,7 +267,7 @@
       document.querySelectorAll('[data-close]').forEach(btn=>btn.addEventListener('click',()=>btn.closest('.modal').classList.remove('open')));
       document.querySelectorAll('.modal').forEach(m=>m.addEventListener('click',(e)=>{ if(e.target===m) m.classList.remove('open'); }));
 
-      // Footer year
+      // year
       document.querySelectorAll('#year').forEach(el=>el.textContent=new Date().getFullYear());
     </script>
   </body>
