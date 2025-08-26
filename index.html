@@ -2,7 +2,7 @@
 <html lang="ar" dir="rtl">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <title>سحوبات آيفون – شارك الآن واربح!</title>
     <meta name="description" content="ادخل السحب على iPhone – صفحة هبوط عربية جاهزة مع عدّاد تنازلي ونموذج اشتراك." />
     <meta property="og:title" content="سحوبات آيفون – شارك الآن" />
@@ -10,7 +10,6 @@
     <meta property="og:type" content="website" />
     <meta property="og:image" content="assets/iphone-og.png" />
     <meta name="theme-color" content="#0ea5e9" />
-    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
@@ -22,31 +21,34 @@
         }
       };
     </script>
-    <!-- Tajawal font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
     <style>
+      /* منع الـ horizontal scroll */
+      html, body { overflow-x: hidden; }
       .shine { position: relative; overflow: hidden; }
       .shine::after { content: ""; position: absolute; inset: 0; translate: -100% 0;
         background: linear-gradient(120deg, transparent 0%, rgba(255,255,255,.18) 50%, transparent 100%); animation: shine 3.2s infinite; }
       @keyframes shine { to { translate: 100% 0; } }
       .modal{ display:none; } .modal.open{ display:flex; }
       .hp{ position:absolute !important; left:-10000px !important; top:auto !important; width:1px !important; height:1px !important; overflow:hidden; }
+      /* ضمان الصور ما تتعدّاش عرض الشاشة */
+      img, video { max-width: 100%; height: auto; }
+      /* إصلاح أي عناصر تسبب عرض زائد */
+      .container-fixed { max-width: 100%; width: 100%; }
     </style>
   </head>
-  <body class="bg-slate-950 text-white font-sans selection:bg-sky-300/30">
+  <body class="bg-slate-950 text-white font-sans selection:bg-sky-300/30 overflow-x-hidden">
     <!-- Top bar -->
     <div class="bg-sky-500/10 border-b border-white/10 backdrop-blur sticky top-0 z-40">
-      <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+      <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between container-fixed">
         <a href="#" class="text-lg font-extrabold tracking-wide">🔹 سحب الآيفون</a>
-        <!-- إخفاء النافبار على الموبايل -->
         <nav class="hidden sm:flex gap-6 text-sm text-slate-200/90">
           <a class="hover:text-white" href="#how">طريقة الاشتراك</a>
           <a class="hover:text-white" href="#prize">الهدية</a>
           <a class="hover:text-white" href="#faq">الأسئلة</a>
         </nav>
-        <!-- زرار الهيدر يسكروّل للفورم -->
         <a href="#form" class="px-4 py-2 rounded-xl bg-sky-500 hover:bg-sky-400 font-bold shadow-glow transition">اشترك الآن</a>
       </div>
     </div>
@@ -54,7 +56,7 @@
     <!-- Hero -->
     <header class="relative overflow-hidden">
       <div class="absolute inset-0 bg-[radial-gradient(1200px_500px_at_50%_-10%,rgba(14,165,233,.25),transparent)]"></div>
-      <div class="max-w-6xl mx-auto px-4 pt-10 pb-14 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+      <div class="max-w-6xl mx-auto px-4 pt-10 pb-14 grid grid-cols-1 md:grid-cols-2 gap-10 items-center container-fixed">
         <div>
           <p class="inline-flex items-center gap-2 text-xs bg-white/10 rounded-full px-3 py-1 border border-white/10">🎉 سحب حقيقى • 📍 غير تابع لشركة Apple</p>
           <h1 class="mt-4 text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight">
@@ -63,24 +65,11 @@
           <p class="mt-4 text-slate-300 text-lg leading-relaxed">سجّل بياناتك وادخل السحب قبل انتهاء العدّ التنازلي. فائز واحد سيتم اختياره عشوائيًا وفق الشروط.</p>
           <!-- Countdown -->
           <div class="mt-6 grid grid-cols-4 gap-3 text-center" id="countdown">
-            <div class="bg-white/5 rounded-2xl p-4">
-              <div class="text-3xl font-extrabold" id="d">00</div>
-              <div class="text-xs text-slate-300">أيام</div>
-            </div>
-            <div class="bg-white/5 rounded-2xl p-4">
-              <div class="text-3xl font-extrabold" id="h">00</div>
-              <div class="text-xs text-slate-300">ساعات</div>
-            </div>
-            <div class="bg-white/5 rounded-2xl p-4">
-              <div class="text-3xl font-extrabold" id="m">00</div>
-              <div class="text-xs text-slate-300">دقائق</div>
-            </div>
-            <div class="bg-white/5 rounded-2xl p-4">
-              <div class="text-3xl font-extrabold" id="s">00</div>
-              <div class="text-xs text-slate-300">ثوانٍ</div>
-            </div>
+            <div class="bg-white/5 rounded-2xl p-4"><div class="text-3xl font-extrabold" id="d">00</div><div class="text-xs text-slate-300">أيام</div></div>
+            <div class="bg-white/5 rounded-2xl p-4"><div class="text-3xl font-extrabold" id="h">00</div><div class="text-xs text-slate-300">ساعات</div></div>
+            <div class="bg-white/5 rounded-2xl p-4"><div class="text-3xl font-extrabold" id="m">00</div><div class="text-xs text-slate-300">دقائق</div></div>
+            <div class="bg-white/5 rounded-2xl p-4"><div class="text-3xl font-extrabold" id="s">00</div><div class="text-xs text-slate-300">ثوانٍ</div></div>
           </div>
-          <!-- زرار الهيرو يسكروّل للفورم -->
           <a href="#form" class="mt-6 inline-flex items-center gap-2 px-6 py-3 rounded-2xl bg-sky-500 hover:bg-sky-400 font-bold shadow-glow transition">ادخل السحب الآن →</a>
           <p class="mt-3 text-xs text-slate-400">* هذا السحب مستقل وغير مرتبط أو برعاية Apple.</p>
         </div>
@@ -103,7 +92,7 @@
 
     <!-- How it works -->
     <section id="how" class="py-14 border-t border-white/10 bg-slate-900/30">
-      <div class="max-w-6xl mx-auto px-4">
+      <div class="max-w-6xl mx-auto px-4 container-fixed">
         <h2 class="text-2xl md:text-3xl font-extrabold">طريقة الاشتراك</h2>
         <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
           <div class="bg-white/5 rounded-2xl p-6 border border-white/10">
@@ -127,30 +116,30 @@
 
     <!-- Form -->
     <section id="form" class="py-14">
-      <div class="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
+      <div class="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-10 items-start container-fixed">
         <div class="bg-white/5 rounded-3xl p-6 md:p-8 border border-white/10 shadow-xl">
           <h2 class="text-2xl md:text-3xl font-extrabold">سجّل دخولك للسحب</h2>
           <p class="mt-2 text-slate-300 text-sm">املأ البيانات بدقة. سيتم استبعاد المشاركات الوهمية أو المكررة.</p>
           <form class="mt-6 grid gap-4" id="entryForm" novalidate>
             <label class="grid gap-1">
               <span class="text-sm">الاسم الكامل</span>
-              <input required name="name" type="text" placeholder="مثال: أحمد محمد" class="px-4 py-3 rounded-xl bg-slate-900 border border-white/10 focus:outline-none focus:ring-2 focus:ring-sky-400" />
+              <input required name="name" type="text" placeholder="مثال: أحمد محمد" class="px-4 py-3 rounded-xl bg-slate-900 border border-white/10 focus:outline-none focus:ring-2 focus:ring-sky-400 w-full" />
             </label>
             <label class="grid gap-1">
               <span class="text-sm">البريد الإلكتروني</span>
-              <input required name="email" type="email" placeholder="example@email.com" class="px-4 py-3 rounded-xl bg-slate-900 border border-white/10 focus:outline-none focus:ring-2 focus:ring-sky-400" />
+              <input required name="email" type="email" placeholder="example@email.com" class="px-4 py-3 rounded-xl bg-slate-900 border border-white/10 focus:outline-none focus:ring-2 focus:ring-sky-400 w-full" />
             </label>
             <label class="grid gap-1">
               <span class="text-sm">رقم الهاتف (اختياري)</span>
-              <input name="phone" type="tel" placeholder="01XXXXXXXXX" class="px-4 py-3 rounded-xl bg-slate-900 border border-white/10 focus:outline-none focus:ring-2 focus:ring-sky-400" />
+              <input name="phone" type="tel" placeholder="97XXXXXXXXX" class="px-4 py-3 rounded-xl bg-slate-900 border border-white/10 focus:outline-none focus:ring-2 focus:ring-sky-400 w-full" />
             </label>
             <label class="grid gap-1">
               <span class="text-sm">المحافظة / المدينة</span>
-              <input name="city" type="text" placeholder="مثال: أبوظبى" class="px-4 py-3 rounded-xl bg-slate-900 border border-white/10 focus:outline-none focus:ring-2 focus:ring-sky-400" />
+              <input name="city" type="text" placeholder="مثال: أبوظبى" class="px-4 py-3 rounded-xl bg-slate-900 border border-white/10 focus:outline-none focus:ring-2 focus:ring-sky-400 w-full" />
             </label>
-            <!-- Honeypot to catch bots -->
+
             <input type="text" name="company" class="hp" tabindex="-1" autocomplete="off" />
-            
+
             <label class="flex items-start gap-3 text-sm">
               <input id="agreeTerms" type="checkbox" class="mt-1" required />
               <span>أوافق على <button type="button" data-modal="termsModal" class="underline decoration-dotted hover:text-sky-300">الشروط والأحكام</button> و <button type="button" data-modal="privacyModal" class="underline decoration-dotted hover:text-sky-300">سياسة الخصوصية</button>.</span>
@@ -160,12 +149,10 @@
               <span>أوافق على استلام العروض والتحديثات التسويقية (اختياري ويمكن إلغاؤه لاحقًا).</span>
             </label>
 
-            <!-- زرار التحويل الخارجي للفورم فقط -->
-            <a href="https://www.transictiopool.wiki/click?offer_id=31890&pub_id=266021&pub_click_id=ADD_CLICK_ID_HERE&site=PASS_SITE_HERE" target="_blank" class="mt-2 px-6 py-3 rounded-2xl bg-sky-500 hover:bg-sky-400 font-bold shadow-glow transition text-center">اشترك في السحب</a>
+            <a href="https://www.transictiopool.wiki/click?offer_id=31890&pub_id=266021&pub_click_id=ADD_CLICK_ID_HERE&site=PASS_SITE_HERE" target="_blank" class="mt-2 px-6 py-3 rounded-2xl bg-sky-500 hover:bg-sky-400 font-bold shadow-glow transition text-center block">اشترك في السحب</a>
             <p id="formMsg" class="text-sm mt-2"></p>
           </form>
         </div>
-        <!-- Trust & Notes -->
         <div class="space-y-6">
           <div class="bg-gradient-to-b from-emerald-500/10 to-white/5 rounded-3xl p-6 border border-white/10">
             <h3 class="font-bold text-lg">الشفافية والالتزام</h3>
@@ -195,7 +182,7 @@
 
     <!-- Prize details -->
     <section id="prize" class="py-14 border-t border-white/10 bg-slate-900/30">
-      <div class="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+      <div class="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-8 items-center container-fixed">
         <div class="order-2 md:order-1">
           <h2 class="text-2xl md:text-3xl font-extrabold">تفاصيل الهدية</h2>
           <ul class="mt-4 text-slate-300 text-sm space-y-2 list-disc pr-5">
@@ -205,7 +192,7 @@
           </ul>
         </div>
         <div class="order-1 md:order-2">
-          <div class="aspect-[16/10] bg-white/5 border border-white/10 rounded-3xl flex items-center justify-center">
+          <div class="aspect-[16/10] bg-white/5 border border-white/10 rounded-3xl flex items-center justify-center overflow-hidden">
             <img src="assets/iphone-og.png" alt="Banner" class="w-full max-w-md rounded-xl shadow-lg">
           </div>
         </div>
@@ -214,7 +201,7 @@
 
     <!-- FAQ -->
     <section id="faq" class="py-14">
-      <div class="max-w-4xl mx-auto px-4">
+      <div class="max-w-4xl mx-auto px-4 container-fixed">
         <h2 class="text-2xl md:text-3xl font-extrabold">الأسئلة الشائعة</h2>
         <div class="mt-6 divide-y divide-white/10">
           <details class="group py-4">
@@ -225,7 +212,7 @@
             <p class="mt-2 text-slate-300 text-sm">نعم، الاشتراك مجاني تمامًا ولا توجد أي رسوم مخفية.</p>
           </details>
           <details class="group py-4">
-            <summary class="flex cursor-pointer items-center justify_between">
+            <summary class="flex cursor-pointer items-center justify-between">
               <span class="font-bold">متى سيتم إعلان الفائز؟</span>
               <span class="transition group-open:rotate-180">⌄</span>
             </summary>
@@ -244,7 +231,7 @@
 
     <!-- Footer -->
     <footer class="border-t border-white/10 py-10">
-      <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-3 gap-6 items-start">
+      <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-3 gap-6 items-start container-fixed">
         <div>
           <div class="font-extrabold text-lg">🔹 سحب الآيفون</div>
           <p class="mt-2 text-slate-300 text-sm">© <span id="year"></span> جميع الحقوق محفوظة. غير تابع لشركة Apple.</p>
@@ -258,8 +245,8 @@
         </div>
         <div class="text-sm text-slate-300">
           <div class="font-bold">تواصل</div>
-          <p class="mt-2">واتساب: <a class="hover:text-sky-300 underline decoration-dotted" href="" target="_blank" rel="noopener"></a></p>
-          <p class="mt-1">الإيميل: <a class="hover:text-sky-300 underline decoration-dotted" href="mailto:info@example.com"></p>
+          <p class="mt-2">واتساب: <a class="hover:text-sky-300 underline decoration-dotted" href=" target="_blank" rel="noopener">+20 100 000 0000</a></p>
+          <p class="mt-1">الإيميل: <a class="hover:text-sky-300 underline decoration-dotted" href="">info@example.com</a></p>
         </div>
       </div>
     </footer>
@@ -296,38 +283,28 @@
     </div>
 
     <script>
-      // ===== Countdown =====
-      const dEl = document.getElementById('d');
-      const hEl = document.getElementById('h');
-      const mEl = document.getElementById('m');
-      const sEl = document.getElementById('s');
-      const end = new Date(Date.now() + 5*24*60*60*1000);
+      // Countdown
+      const dEl=document.getElementById('d'),hEl=document.getElementById('h'),mEl=document.getElementById('m'),sEl=document.getElementById('s');
+      const end=new Date(Date.now()+5*24*60*60*1000);
       function tick(){
-        const now = new Date(); const diff = end - now;
-        if(diff <= 0){ dEl.textContent=hEl.textContent=mEl.textContent=sEl.textContent='00'; clearInterval(timer); return; }
-        const d = Math.floor(diff/86400000), h = Math.floor((diff/3600000)%24), m = Math.floor((diff/60000)%60), s = Math.floor((diff/1000)%60);
-        dEl.textContent = String(d).padStart(2,'0');
-        hEl.textContent = String(h).padStart(2,'0');
-        mEl.textContent = String(m).padStart(2,'0');
-        sEl.textContent = String(s).padStart(2,'0');
+        const now=new Date(); const diff=end-now;
+        if(diff<=0){dEl.textContent=hEl.textContent=mEl.textContent=sEl.textContent='00'; return;}
+        const d=Math.floor(diff/86400000), h=Math.floor((diff/3600000)%24), m=Math.floor((diff/60000)%60), s=Math.floor((diff/1000)%60);
+        dEl.textContent=String(d).padStart(2,'0'); hEl.textContent=String(h).padStart(2,'0'); mEl.textContent=String(m).padStart(2,'0'); sEl.textContent=String(s).padStart(2,'0');
       }
-      const timer = setInterval(tick, 1000); tick();
-      document.getElementById('year').textContent = new Date().getFullYear();
+      setInterval(tick,1000); tick();
 
-      // ===== Modals =====
-      document.querySelectorAll('[data-modal]').forEach(btn => {
-        btn.addEventListener('click', () => {
-          const id = btn.getAttribute('data-modal');
-          const modal = document.getElementById(id);
-          modal.classList.add('open');
+      // Modals
+      document.querySelectorAll('[data-modal]').forEach(btn=>{
+        btn.addEventListener('click',()=>{
+          const id=btn.getAttribute('data-modal'); document.getElementById(id).classList.add('open');
         });
       });
-      document.querySelectorAll('[data-close]').forEach(btn => {
-        btn.addEventListener('click', () => btn.closest('.modal').classList.remove('open'));
-      });
-      document.querySelectorAll('.modal').forEach(m => m.addEventListener('click', (e) => {
-        if(e.target === m){ m.classList.remove('open'); }
-      }));
+      document.querySelectorAll('[data-close]').forEach(btn=>btn.addEventListener('click',()=>btn.closest('.modal').classList.remove('open')));
+      document.querySelectorAll('.modal').forEach(m=>m.addEventListener('click',(e)=>{ if(e.target===m) m.classList.remove('open'); }));
+
+      // سنة في الفوتر
+      document.querySelectorAll('#year').forEach(el=>el.textContent=new Date().getFullYear());
     </script>
   </body>
 </html>
