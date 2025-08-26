@@ -25,7 +25,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
     <style>
-      /* منع الـ horizontal scroll */
       html, body { overflow-x: hidden; }
       .shine { position: relative; overflow: hidden; }
       .shine::after { content: ""; position: absolute; inset: 0; translate: -100% 0;
@@ -33,16 +32,13 @@
       @keyframes shine { to { translate: 100% 0; } }
       .modal{ display:none; } .modal.open{ display:flex; }
       .hp{ position:absolute !important; left:-10000px !important; top:auto !important; width:1px !important; height:1px !important; overflow:hidden; }
-      /* ضمان الصور ما تتعدّاش عرض الشاشة */
       img, video { max-width: 100%; height: auto; }
-      /* إصلاح أي عناصر تسبب عرض زائد */
-      .container-fixed { max-width: 100%; width: 100%; }
     </style>
   </head>
-  <body class="bg-slate-950 text-white font-sans selection:bg-sky-300/30 overflow-x-hidden">
+  <body class="bg-slate-950 text-white font-sans selection:bg-sky-300/30">
     <!-- Top bar -->
     <div class="bg-sky-500/10 border-b border-white/10 backdrop-blur sticky top-0 z-40">
-      <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between container-fixed">
+      <div class="w-full px-4 mx-auto md:max-w-6xl py-3 flex items-center justify-between">
         <a href="#" class="text-lg font-extrabold tracking-wide">🔹 سحب الآيفون</a>
         <nav class="hidden sm:flex gap-6 text-sm text-slate-200/90">
           <a class="hover:text-white" href="#how">طريقة الاشتراك</a>
@@ -56,7 +52,7 @@
     <!-- Hero -->
     <header class="relative overflow-hidden">
       <div class="absolute inset-0 bg-[radial-gradient(1200px_500px_at_50%_-10%,rgba(14,165,233,.25),transparent)]"></div>
-      <div class="max-w-6xl mx-auto px-4 pt-10 pb-14 grid grid-cols-1 md:grid-cols-2 gap-10 items-center container-fixed">
+      <div class="w-full px-4 mx-auto md:max-w-6xl pt-10 pb-14 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 items-center">
         <div>
           <p class="inline-flex items-center gap-2 text-xs bg-white/10 rounded-full px-3 py-1 border border-white/10">🎉 سحب حقيقى • 📍 غير تابع لشركة Apple</p>
           <h1 class="mt-4 text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight">
@@ -75,11 +71,11 @@
         </div>
         <!-- Prize card -->
         <div class="shine">
-          <div class="relative bg-gradient-to-b from-white/10 to-white/5 border border-white/10 rounded-3xl p-6 md:p-8 shadow-xl backdrop-blur">
-            <div class="aspect-[4/3] bg-white/5 rounded-2xl flex items-center justify-center overflow-hidden">
+          <div class="relative bg-gradient-to-b from-white/10 to-white/5 border border-white/10 rounded-3xl p-4 sm:p-6 md:p-8 shadow-xl backdrop-blur w-full">
+            <div class="aspect-[4/3] bg-white/5 rounded-2xl flex items-center justify-center overflow-hidden w-full">
               <img src="assets/iphone-og.png" alt="iPhone" class="rounded-xl shadow-lg w-full max-w-md mx-auto"/>
             </div>
-            <div class="mt-5 grid sm:grid-cols-3 gap-3 text-sm">
+            <div class="mt-5 grid grid-cols-1 sm:grid-cols-3 gap-3 text-sm">
               <div class="bg-white/5 rounded-xl p-3"><span class="text-slate-300">الموديل:</span> iPhone (اختيارك)</div>
               <div class="bg-white/5 rounded-xl p-3"><span class="text-slate-300">اللون:</span> أسود / فضي</div>
               <div class="bg-white/5 rounded-xl p-3"><span class="text-slate-300">السعة:</span> 128GB</div>
@@ -92,7 +88,7 @@
 
     <!-- How it works -->
     <section id="how" class="py-14 border-t border-white/10 bg-slate-900/30">
-      <div class="max-w-6xl mx-auto px-4 container-fixed">
+      <div class="w-full px-4 mx-auto md:max-w-6xl">
         <h2 class="text-2xl md:text-3xl font-extrabold">طريقة الاشتراك</h2>
         <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
           <div class="bg-white/5 rounded-2xl p-6 border border-white/10">
@@ -116,8 +112,8 @@
 
     <!-- Form -->
     <section id="form" class="py-14">
-      <div class="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-10 items-start container-fixed">
-        <div class="bg-white/5 rounded-3xl p-6 md:p-8 border border-white/10 shadow-xl">
+      <div class="w-full px-4 mx-auto md:max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 items-start">
+        <div class="bg-white/5 rounded-3xl p-6 md:p-8 border border-white/10 shadow-xl w-full">
           <h2 class="text-2xl md:text-3xl font-extrabold">سجّل دخولك للسحب</h2>
           <p class="mt-2 text-slate-300 text-sm">املأ البيانات بدقة. سيتم استبعاد المشاركات الوهمية أو المكررة.</p>
           <form class="mt-6 grid gap-4" id="entryForm" novalidate>
@@ -131,11 +127,11 @@
             </label>
             <label class="grid gap-1">
               <span class="text-sm">رقم الهاتف (اختياري)</span>
-              <input name="phone" type="tel" placeholder="97XXXXXXXXX" class="px-4 py-3 rounded-xl bg-slate-900 border border-white/10 focus:outline-none focus:ring-2 focus:ring-sky-400 w-full" />
+              <input name="phone" type="tel" placeholder="01XXXXXXXXX" class="px-4 py-3 rounded-xl bg-slate-900 border border-white/10 focus:outline-none focus:ring-2 focus:ring-sky-400 w-full" />
             </label>
             <label class="grid gap-1">
               <span class="text-sm">المحافظة / المدينة</span>
-              <input name="city" type="text" placeholder="مثال: أبوظبى" class="px-4 py-3 rounded-xl bg-slate-900 border border-white/10 focus:outline-none focus:ring-2 focus:ring-sky-400 w-full" />
+              <input name="city" type="text" placeholder="مثال: القاهرة" class="px-4 py-3 rounded-xl bg-slate-900 border border-white/10 focus:outline-none focus:ring-2 focus:ring-sky-400 w-full" />
             </label>
 
             <input type="text" name="company" class="hp" tabindex="-1" autocomplete="off" />
@@ -153,8 +149,8 @@
             <p id="formMsg" class="text-sm mt-2"></p>
           </form>
         </div>
-        <div class="space-y-6">
-          <div class="bg-gradient-to-b from-emerald-500/10 to-white/5 rounded-3xl p-6 border border-white/10">
+        <div class="space-y-6 w-full">
+          <div class="bg-gradient-to-b from-emerald-500/10 to-white/5 rounded-3xl p-6 border border-white/10 w-full">
             <h3 class="font-bold text-lg">الشفافية والالتزام</h3>
             <ul class="mt-3 list-disc pr-5 text-slate-300 text-sm space-y-1">
               <li>السحب حقيقي وسيتم توثيق عملية الاختيار بالفيديو.</li>
@@ -164,11 +160,11 @@
               <li>في حال تعذر التواصل مع الفائز خلال 7 أيام، يتم اختيار بديل.</li>
             </ul>
           </div>
-          <div class="bg-white/5 rounded-3xl p-6 border border-white/10">
+          <div class="bg-white/5 rounded-3xl p-6 border border-white/10 w-full">
             <h3 class="font-bold text-lg">ملاحظات قانونية هامة</h3>
             <p class="mt-2 text-sm text-slate-300">تحقق من القوانين المحلية الخاصة بالمسابقات والسحوبات. قد تحتاج إلى رخصة/إخطار أو استثناء ضريبي حسب بلدك. لا تجمع بيانات أكثر من اللازم، ووفّر طريقة واضحة لإلغاء الاشتراك.</p>
           </div>
-          <div class="bg-white/5 rounded-3xl p-6 border border-white/10">
+          <div class="bg-white/5 rounded-3xl p-6 border border-white/10 w-full">
             <h3 class="font-bold text-lg">أساليب منع الاحتيال</h3>
             <ul class="mt-2 list-disc pr-5 text-slate-300 text-sm space-y-1">
               <li>تفعيل البريد (Double-opt-in) لتأكيد المشاركات.</li>
@@ -182,7 +178,7 @@
 
     <!-- Prize details -->
     <section id="prize" class="py-14 border-t border-white/10 bg-slate-900/30">
-      <div class="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-8 items-center container-fixed">
+      <div class="w-full px-4 mx-auto md:max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 items-center">
         <div class="order-2 md:order-1">
           <h2 class="text-2xl md:text-3xl font-extrabold">تفاصيل الهدية</h2>
           <ul class="mt-4 text-slate-300 text-sm space-y-2 list-disc pr-5">
@@ -192,7 +188,7 @@
           </ul>
         </div>
         <div class="order-1 md:order-2">
-          <div class="aspect-[16/10] bg-white/5 border border-white/10 rounded-3xl flex items-center justify-center overflow-hidden">
+          <div class="aspect-[16/10] bg-white/5 border border-white/10 rounded-3xl flex items-center justify-center overflow-hidden w-full">
             <img src="assets/iphone-og.png" alt="Banner" class="w-full max-w-md rounded-xl shadow-lg">
           </div>
         </div>
@@ -201,7 +197,7 @@
 
     <!-- FAQ -->
     <section id="faq" class="py-14">
-      <div class="max-w-4xl mx-auto px-4 container-fixed">
+      <div class="w-full px-4 mx-auto md:max-w-6xl">
         <h2 class="text-2xl md:text-3xl font-extrabold">الأسئلة الشائعة</h2>
         <div class="mt-6 divide-y divide-white/10">
           <details class="group py-4">
@@ -231,7 +227,7 @@
 
     <!-- Footer -->
     <footer class="border-t border-white/10 py-10">
-      <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-3 gap-6 items-start container-fixed">
+      <div class="w-full px-4 mx-auto md:max-w-6xl grid md:grid-cols-3 gap-6 items-start">
         <div>
           <div class="font-extrabold text-lg">🔹 سحب الآيفون</div>
           <p class="mt-2 text-slate-300 text-sm">© <span id="year"></span> جميع الحقوق محفوظة. غير تابع لشركة Apple.</p>
@@ -245,15 +241,15 @@
         </div>
         <div class="text-sm text-slate-300">
           <div class="font-bold">تواصل</div>
-          <p class="mt-2">واتساب: <a class="hover:text-sky-300 underline decoration-dotted" href=" target="_blank" rel="noopener">+20 100 000 0000</a></p>
-          <p class="mt-1">الإيميل: <a class="hover:text-sky-300 underline decoration-dotted" href="">info@example.com</a></p>
+          <p class="mt-2">واتساب: <a class="hover:text-sky-300 underline decoration-dotted" href="https://wa.me/201000000000" target="_blank" rel="noopener">+20 100 000 0000</a></p>
+          <p class="mt-1">الإيميل: <a class="hover:text-sky-300 underline decoration-dotted" href="mailto:info@example.com">info@example.com</a></p>
         </div>
       </div>
     </footer>
 
     <!-- Terms Modal -->
     <div id="termsModal" class="modal fixed inset-0 z-50 items-center justify-center bg-black/60 p-4">
-      <div class="max-w-2xl w-full bg-slate-900 border border-white/10 rounded-2xl p-6">
+      <div class="w-full px-4 mx-auto md:max-w-2xl bg-slate-900 border border-white/10 rounded-2xl p-6">
         <div class="flex items-center justify-between">
           <h3 class="font-bold text-xl">الشروط والأحكام</h3>
           <button class="px-3 py-1 rounded-lg bg-white/10 hover:bg-white/20" data-close>إغلاق</button>
@@ -270,7 +266,7 @@
 
     <!-- Privacy Modal -->
     <div id="privacyModal" class="modal fixed inset-0 z-50 items-center justify-center bg-black/60 p-4">
-      <div class="max-w-2xl w-full bg-slate-900 border border-white/10 rounded-2xl p-6">
+      <div class="w-full px-4 mx-auto md:max-w-2xl bg-slate-900 border border-white/10 rounded-2xl p-6">
         <div class="flex items-center justify-between">
           <h3 class="font-bold text-xl">سياسة الخصوصية</h3>
           <button class="px-3 py-1 rounded-lg bg-white/10 hover:bg-white/20" data-close>إغلاق</button>
@@ -303,7 +299,7 @@
       document.querySelectorAll('[data-close]').forEach(btn=>btn.addEventListener('click',()=>btn.closest('.modal').classList.remove('open')));
       document.querySelectorAll('.modal').forEach(m=>m.addEventListener('click',(e)=>{ if(e.target===m) m.classList.remove('open'); }));
 
-      // سنة في الفوتر
+      // Footer year
       document.querySelectorAll('#year').forEach(el=>el.textContent=new Date().getFullYear());
     </script>
   </body>
